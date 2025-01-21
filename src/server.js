@@ -7,12 +7,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// MySQL Configuration
+// Use environment variables for MySQL configuration
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root', // Use your MySQL username
-    password: 'Yugam@123', // Use your MySQL password
-    database: 'chatbot'
+    host: process.env.DB_HOST,       // Use Railway provided MySQL host
+    user: process.env.DB_USER,       // Use Railway provided MySQL username
+    password: process.env.DB_PASSWORD, // Use Railway provided MySQL password
+    database: process.env.DB_NAME    // Use Railway provided MySQL database name
 });
 
 // Connect to the Database
@@ -69,7 +69,7 @@ app.post('/chat', (req, res) => {
 });
 
 // Start Server
-const PORT = 5000;
+const PORT = process.env.PORT || 5000; // Use Railway's dynamic port
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
