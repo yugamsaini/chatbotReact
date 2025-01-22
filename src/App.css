@@ -1,62 +1,123 @@
 .App {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f4f4f9;
+  background-color: #e9ecef;
+  margin: 0;
 }
 
 .chat-box {
   width: 400px;
   height: 500px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
   overflow-y: auto;
-  margin-bottom: 10px;
-  background: #fff;
+  margin-bottom: 15px;
+  background: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .message {
-  margin: 5px 0;
-  padding: 8px;
-  border-radius: 4px;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 75%;
+  word-wrap: break-word;
+  transition: transform 0.2s ease-in-out;
 }
 
 .message.user {
-  background-color: #d1e7dd;
+  background-color: #e0ffe0;
+  color: #2c5d2c;
   text-align: right;
+  align-self: flex-end;
+}
+
+.message.user:hover {
+  transform: scale(1.02);
 }
 
 .message.bot {
-  background-color: #f8d7da;
+  background-color: #f5f5ff;
+  color: #4c4c7e;
   text-align: left;
+  align-self: flex-start;
+}
+
+.message.bot:hover {
+  transform: scale(1.02);
 }
 
 .input-box {
   display: flex;
   width: 400px;
+  gap: 10px;
 }
 
 input {
   flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 button {
-  padding: 8px 12px;
+  padding: 10px 16px;
   border: none;
   background-color: #007bff;
   color: white;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #004494;
+  transform: translateY(0);
+}
+
+/* Add smooth scrolling to the chat box */
+.chat-box {
+  scroll-behavior: smooth;
+}
+
+/* Subtle scrollbar customization */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background: #888;
 }
